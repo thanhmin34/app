@@ -47,7 +47,20 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
+.border-r {
+  border-right: 1px solid white;
+  position: relative;
+}
+.px-h {
+  padding: 0 15px;
+}
+.px-h:hover {
+  opacity: 0.85;
+}
 
+.border-b {
+  border-bottom: 0.5px solid #023047;
+}
 @layer base {
   body {
     @apply font-body w-full h-screen;

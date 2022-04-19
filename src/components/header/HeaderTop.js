@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
+import UserIcon from "../icon/UserIcon";
 const HeaderTop = () => {
   return (
     <div className="h-[40px] bg-basic  text-[#fff]">
@@ -15,10 +17,13 @@ const HeaderTop = () => {
         </ul>
         <ul className="flex items-center font-[14px] leading-[17px]">
           <li className="mr-6">Delivery Information</li>
-          <li className="mx-4 list-disc ">
-            <Link to="/">Account</Link>
+          <li className="mx-4 list-disc flex items-center">
+            <UserIcon />
+            <Link to="/" className="ml-2">
+              Account
+            </Link>
           </li>
-          <li className="ml-4 list-disc">
+          <li className="ml-4 list-disc flex items-center">
             <Link to="/">Arabic</Link>
           </li>
         </ul>

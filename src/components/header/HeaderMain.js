@@ -39,11 +39,11 @@ const HeaderMain = () => {
           />
           <SearchIcon />
         </div>
-        <button className="flex items-center justify-center mr-[15px] ml-[30px] bg-secondary py-[8px] px-[24px] ">
+        <button className="flex items-center justify-center mr-[15px] ml-[30px] bg-secondary py-[8px] px-[24px] hover:opacity-80 ">
           <HeartIcon />
           <span className="text-w ml-[10px]">Wishlist</span>
         </button>
-        <button className="flex items-center justify-center  bg-secondary py-[8px] px-[24px] ">
+        <button className="flex items-center justify-center  bg-secondary py-[8px] px-[24px] hover:opacity-80 ">
           <CartIcon />
           <span className="text-w ml-[10px] font-[14px]">Shopping Cart</span>
         </button>
