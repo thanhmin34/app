@@ -22,7 +22,7 @@ const Section2 = ({ title, data1, img }) => {
           <img src="/care5.png" alt="" />
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-[30px] ">
+      <div className="grid grid-cols-4 gap-[30px] mt-[50px] ">
         {img.length > 0 &&
           img.map((item, index) => <ProductItem key={index} src={item} />)}
       </div>

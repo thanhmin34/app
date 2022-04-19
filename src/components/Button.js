@@ -3,7 +3,7 @@ import propTypes from "prop-types";
 const Button = ({ children, props, tx, bg }) => {
   return (
     <button
-      className={` flex items-center justify-center font-medium text-[18px] leading-[22px] ${tx} ${bg} h-[60px]`}
+      className={` flex items-center justify-center font-medium text-[18px] leading-[22px] ${tx} ${bg} h-[60px] hover:opacity-80`}
       {...props}
     >
       {children}

@@ -10,7 +10,7 @@ import Payment from "../components/svg/Payment";
 
 const Home = () => {
   return (
-    <div className="page-container">
+    <div className="page-container px-2">
       <Slider />
       <div className="flex flex-col mt-[70px] ">
         <h2 className="text-[30px] font-medium leading-[39px] text-center text-basic mb-[50px]">
@@ -30,15 +30,15 @@ const Home = () => {
       <Section title="Shop by Beauty Offers" data={data1} img={imgs1} />
       <Section title="Shop by Mother & Child Offers" data={data2} img={imgs2} />
       <Section title="Shop by Vitamins & Suplements" data={data3} img={imgs3} />
-      <Section2 title="shop by personal care" data1={data4} img={imgs3} />
-      <Section3 title="shop by personal care" data1={data4} img={imgs3} />
+      <Section2 title="shop by personal care" data1={data4} img={data3} />
+      <Section3 title="shop by personal care" data1={data4} img={data3} />
       <div className="mt-10 relative">
         <img src="/slider2.png" alt="" />
         <div className="absolute top-[50%] translate-y-[-50%] left-[197px]">
           <h1 className="font-medium text-[30px] leading-[42px] text-basic w-full max-w-[480px] px-10 text-center">
             To Exchange your Prescription request
           </h1>
-          <button className="px-10 py-[10px] bg-primary text-w text-center ml-[160px] mt-5">
+          <button className="px-10 py-[10px] bg-primary text-w text-center ml-[160px] mt-5 hover:opacity-80">
             Order Now
           </button>
         </div>
@@ -76,19 +76,19 @@ function Image({ src }) {
   );
 }
 
-const data1 = [
+const imgs1 = [
   { src: "/venus.png" },
   { src: "/himalava.png" },
   { src: "/flormar.png" },
   { src: "/nivea.png" },
 ];
-const data2 = [
+const imgs2 = [
   { src: "/h1.png" },
   { src: "/h2.png" },
   { src: "/h3.png" },
   { src: "/h4.png" },
 ];
-const data3 = [
+const imgs3 = [
   { src: "/5.png" },
   { src: "/6.png" },
   { src: "/7.png" },
@@ -96,8 +96,87 @@ const data3 = [
 ];
 const data4 = [{ src: "/care1.png" }, { src: "/care2.png" }];
 
-const imgs1 = ["/sp1.png", "/sp2.png", "/sp3.png", "/sp4.png"];
-const imgs2 = ["/sp5.png", "/sp6.png", "/sp7.png", "/sp8.png"];
-const imgs3 = ["/h5.png", "/h6.png", "/h7.png", "/h8.png"];
+const data1 = [
+  {
+    value: "/sp1.png",
+    card: "Hit",
+    card2: "SALE - 30%",
+    price: "30.00",
+    priceSale: "20.00",
+  },
+  {
+    value: "/sp2.png",
+    card: "New",
+    card2: "SALE - 30%",
+    price: "30.00",
+    priceSale: "20.00",
+  },
+  {
+    value: "/sp3.png",
+    card: "Hit",
+    card2: "SALE - 30%",
+    price: "30.00",
+    priceSale: "20.00",
+  },
+  {
+    value: "/sp4.png",
+    card: "Hit",
+    card2: "SALE - 30%",
+    price: "30.00",
+    priceSale: "20.00",
+  },
+];
+const data2 = [
+  {
+    value: "/sp5.png",
+    card: "Hit",
+    card2: "SALE - 30%",
+    price: "30.00",
+    priceSale: "20.00",
+  },
+  {
+    value: "/sp6.png",
+    card: "New",
+    priceSale: "20.00",
+  },
+  {
+    value: "/sp7.png",
+    card: "Hit",
+    card2: "SALE - 30%",
+    price: "30.00",
+    priceSale: "20.00",
+  },
+  {
+    value: "/sp8.png",
+    card: "New",
+    priceSale: "20.00",
+  },
+];
+const data3 = [
+  {
+    value: "/h5.png",
+    card: "Hit",
+    card2: "SALE - 30%",
+    price: "30.00",
+    priceSale: "20.00",
+  },
+  {
+    value: "/h6.png",
+    card: "New",
+    priceSale: "20.00",
+  },
+  {
+    value: "/h7.png",
+    card: "Hit",
+    card2: "SALE - 30%",
+    price: "30.00",
+    priceSale: "20.00",
+  },
+  {
+    value: "/h8.png",
+    card: "New",
+    priceSale: "20.00",
+  },
+];
 
 export default Home;

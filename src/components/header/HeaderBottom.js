@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const HeaderBottom = () => {
   return (
     <div className="h-[50px] bg-primary w-full">
-      <div className="flex items-center text-[16px] leading-[19px] font-medium  page-container h-full text-w">
+      <div className="flex items-center text-[16px] leading-[19px] font-medium  page-container h-full text-w px-2">
         <Link to="/" className=" border-r pr-[15px] hover:opacity-80">
           Offers
         </Link>

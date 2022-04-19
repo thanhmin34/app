@@ -18,6 +18,6 @@ const Items = ({ title, desc, icon }) => {
 Items.propTypes = {
   title: propTypes.string,
   desc: propTypes.string,
-  icon: propTypes.string.isRequired,
+  icon: propTypes.object.isRequired,
 };
 export default Items;

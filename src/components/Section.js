@@ -1,7 +1,7 @@
 import React from "react";
 import Star from "./icon/Star";
 import propTypes from "prop-types";
-import Button from "./Button";
+
 const Section = ({ src, title, data, img }) => {
   return (
     <div className="mt-[70px]">
@@ -9,12 +9,12 @@ const Section = ({ src, title, data, img }) => {
         {title}
       </h2>
       <div className="grid grid-cols-2 gap-[30px] mb-[50px]">
-        {data.length > 0 &&
-          data.map((item, index) => <Images key={index} src={item.src} />)}
+        {img.length > 0 &&
+          img.map((item, index) => <Images key={index} src={item.src} />)}
       </div>
       <div className="grid grid-cols-4 gap-[30px] ">
-        {img.length > 0 &&
-          img.map((item, index) => <ProductItem key={index} src={item} />)}
+        {data.length > 0 &&
+          data.map((item, index) => <ProductItem key={index} src={item} />)}
       </div>
     </div>
   );
@@ -37,25 +37,30 @@ export function Images({ src }) {
   );
 }
 
-export function ProductItem({
-  src,
-  pricesale = "20.00",
-  price = "30.00 SAR",
-  addcar = false,
-}) {
+export function ProductItem(item) {
   return (
-    <div className="flex flex-col relative">
-      <div className=" absolute top-[30px] left-[20px] bg-primary text-w rounded-[2px] z-10">
-        <p className="px-3 h-[20px] flex items-center justify-center ">HIT</p>
-      </div>
-      <div className=" flex items-center justify-center absolute top-[56px] left-[20px] bg-[#F01914] text-w rounded-[2px] z-10">
-        <span className="font-medium text-[12px] px-[10px] leading-5 h-5">
-          SALE - 30%
-        </span>
-      </div>
+    <div className="flex flex-col relative cursor-pointer">
+      {item.src.card === "New" ? (
+        <div className=" absolute top-[30px] left-[20px] bg-[#00AFAA] text-w rounded-[2px] z-10">
+          <p className="px-3 h-[20px] flex items-center justify-center ">New</p>
+        </div>
+      ) : (
+        <div className=" absolute top-[30px] left-[20px] bg-primary text-w rounded-[2px] z-10">
+          <p className="px-3 h-[20px] flex items-center justify-center ">HIT</p>
+        </div>
+      )}
+      {item.src.card2 ? (
+        <div className=" flex items-center justify-center absolute top-[56px] left-[20px] bg-[#F01914] text-w rounded-[2px] z-10">
+          <span className="font-medium text-[12px] px-[10px] leading-5 h-5">
+            {item.src.card2}
+          </span>
+        </div>
+      ) : (
+        ""
+      )}
       <div className="flex flex-col pt-[78.43%] relative">
         <img
-          src={src}
+          src={item.src.value}
           alt=""
           className="absolute top-0 left-0 right-0 object-cover w-full h-full"
         />
@@ -79,19 +84,29 @@ export function ProductItem({
         Louis Widmer
       </span>
       <div className="flex items-center mx-[64px] mb-[32px]">
-        <span className="font-medium text-[16px] text-[#023047] line-through">
-          {price || ""}
-        </span>
-        <span className="flex items-center justify-start ml-[10px] text-[#E92728] text-[18px] font-[600]">
-          {pricesale || ""} <p className="ml-[2px]">SAR</p>
-        </span>
+        {item.src.price ? (
+          <span className="font-medium text-[16px] text-[#023047] opacity-70 flex items-center">
+            {item.src.price} <span className="ml-[2px]">SAR</span>
+          </span>
+        ) : (
+          ""
+        )}
+        {item.src.price ? (
+          <span className="flex items-center justify-start ml-[10px] text-[#E92728] text-[18px] font-[600] text-center">
+            {item.src.priceSale} <p className="ml-[2px]">SAR</p>
+          </span>
+        ) : (
+          <span className="flex items-center justify-start ml-[50px] text-[#01AEAB] text-[18px] font-[600] text-center ">
+            {item.src.priceSale} <p className="ml-[2px]">SAR</p>
+          </span>
+        )}
       </div>
-      {addcar === true ? (
+      {item.src.addcar === true ? (
         <div className=" flex items-center gap-[5px] px-[55px] py-[30px] shadow-lg">
-          <button className="w-full max-w-[160px] h-[40px] text-[15px] leading-5 text-w bg-[#01AEAB]">
+          <button className="w-full max-w-[160px] h-[40px] text-[15px] leading-5 text-w bg-[#01AEAB] hover:opacity-80">
             Add to cart
           </button>
-          <button className="bg-[#01AEAB] h-10 w-10 flex items-center justify-center">
+          <button className="bg-[#01AEAB] h-10 w-10 flex items-center justify-center hover:opacity-80">
             <svg
               width="21"
               height="18"

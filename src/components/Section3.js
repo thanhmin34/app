@@ -21,23 +21,49 @@ const Section3 = ({ title }) => {
           Seasonal highlights
         </Button>
         <Button tx="text-[#023047]" bg="bg-[#E5E5E5]">
-          Seasonal highlights
+          Popular
         </Button>
         <Button tx="text-[#023047]" bg="bg-[#E5E5E5]">
-          Seasonal highlights
+          New products
         </Button>
         <Button tx="text-[#023047]" bg="bg-[#E5E5E5]">
-          Seasonal highlights
+          Recommendation
         </Button>
       </div>
       <div className="grid grid-cols-4 gap-[31px]">
-        <ProductItem src="/brand/h1.png" />
-        <ProductItem src="/brand/h2.png" addcar={true} />
-        <ProductItem src="/brand/h3.png" />
-        <ProductItem src="/brand/h4.png" />
+        {data3.length > 0 &&
+          data3.map((item, index) => <ProductItem key={index} src={item} />)}
       </div>
     </div>
   );
 };
 
+const data3 = [
+  {
+    value: "/h6.png",
+    card: "New",
+    priceSale: "20.00",
+  },
+  {
+    value: "/h5.png",
+    card: "Hit",
+    card2: "SALE - 30%",
+    price: "30.00",
+    priceSale: "20.00",
+    addcar: true,
+  },
+
+  {
+    value: "/h8.png",
+    card: "New",
+    priceSale: "20.00",
+  },
+  {
+    value: "/h7.png",
+    card: "Hit",
+    card2: "SALE - 30%",
+    price: "30.00",
+    priceSale: "20.00",
+  },
+];
 export default Section3;

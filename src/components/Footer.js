@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import CarIcon from "./icon/CarIcon";
 import EmailIcon from "./icon/EmailIcon";
 import Facebook from "./icon/Facebook";
@@ -43,9 +44,9 @@ const Footer = () => {
             <div className="social  flex items-center mt-5 justify-start">
               {social.length > 0 &&
                 social.map((item, index) => (
-                  <div key={index} className="mr-[20px]">
+                  <Link to="/" key={index} className="mr-[20px]">
                     {item.icon}
-                  </div>
+                  </Link>
                 ))}
             </div>
           </div>
@@ -55,10 +56,13 @@ const Footer = () => {
               Get the APP
             </h2>
             <div className="flex flex-col">
-              <div className="mb-[10px]">
+              <Link to="/" className="mb-[10px]">
                 <AppStore />
-              </div>
-              <GgPlay />
+              </Link>
+              <Link to="/">
+                {" "}
+                <GgPlay />
+              </Link>
             </div>
           </div>
         </div>
