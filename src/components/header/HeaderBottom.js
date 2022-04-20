@@ -3,31 +3,17 @@ import { Link } from "react-router-dom";
 const HeaderBottom = () => {
   return (
     <div className="h-[50px] bg-primary w-full">
-      <div className="flex items-center text-[16px] leading-[19px] font-medium  page-container h-full text-w px-2">
+      <div className="flex items-center text-[16px] leading-[19px] font-medium  page-container h-full text-w px-2 gap-[7px]">
         <Link to="/" className=" border-r pr-[15px] hover:opacity-80">
           Offers
         </Link>
-        <Link className="px-h" to="/">
-          Medications
-        </Link>
-        <Link className="px-h" to="/">
-          Vitamins & Supplements
-        </Link>
-        <Link className="px-h" to="/">
-          Makeup & Beauty
-        </Link>
-        <Link className="px-h" to="/">
-          Skin Care
-        </Link>
-        <Link className="px-h" to="/">
-          Hair Care
-        </Link>
-        <Link className="px-h" to="/">
-          Personal Care
-        </Link>
-        <Link className="px-h" to="/">
-          Mother & Child Care
-        </Link>
+        {listmenu.length > 0 &&
+          listmenu.map((item) => (
+            <Link key={item.title} className="px-h " to="/">
+              {item.title}
+            </Link>
+          ))}
+
         <Link className="pl-[15px] hover:opacity-80" to="/">
           Medical Devices & Equipments
         </Link>
@@ -36,4 +22,13 @@ const HeaderBottom = () => {
   );
 };
 
+const listmenu = [
+  { title: "Medications" },
+  { title: " Vitamins & Supplements" },
+  { title: " Makeup & Beauty" },
+  { title: " Skin Care" },
+  { title: "Hair Care" },
+  { title: "Personal Care" },
+  { title: "Mother & Child Care" },
+];
 export default HeaderBottom;

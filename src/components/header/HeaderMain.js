@@ -36,10 +36,10 @@ const HeaderMain = () => {
         </div>
       </div>
       <div className="control flex items-center flex-1 ml-[226px] ">
-        <div className="input flex items-center justify-start flex-1 border border-[#E5E5E5] ">
+        <div className="input flex items-center justify-start flex-1 border border-[#E5E5E5] search ">
           <input
             type="text"
-            className="text-[14px] pl-[15px] py-[12px] flex-1"
+            className="text-[14px] px-[15px] py-[12px] flex-1 text-[#7C7C7C] inputElement"
             placeholder="Search for a product, brand, category.."
           />
           <SearchIcon />

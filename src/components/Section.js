@@ -2,7 +2,7 @@ import React from "react";
 import Star from "./icon/Star";
 import propTypes from "prop-types";
 
-const Section = ({ src, title, data, img }) => {
+const Section = ({ title, data, img }) => {
   return (
     <div className="mt-[70px]">
       <h2 className="text-[30px] font-medium leading-[39px] text-center text-basic mb-[50px]">
@@ -45,8 +45,8 @@ export function ProductItem(item) {
           <p className="px-3 h-[20px] flex items-center justify-center ">New</p>
         </div>
       ) : (
-        <div className=" absolute top-[30px] left-[20px] bg-primary text-w rounded-[2px] z-10">
-          <p className="px-3 h-[20px] flex items-center justify-center ">HIT</p>
+        <div className=" absolute top-[30px] left-[20px] bg-primary text-w rounded-[2px] z-10 h-5">
+          <p className="px-3 h-5 flex items-center justify-center ">HIT</p>
         </div>
       )}
       {item.src.card2 ? (

@@ -17,22 +17,20 @@ const HeaderTop = () => {
           </li>
         </ul>
         <ul className="flex items-center font-[14px] leading-[17px]">
-          <li className=" font-[300] text-[14px] pr-6">Delivery Information</li>
+          <li className=" font-[300] text-base pr-6">Delivery Information</li>
           <li className="px-4  flex items-center list-disc">
             <UserIcon />
             <Link to="/" className="ml-2">
               Account
             </Link>
           </li>
-          <li className="pl-[15px]  flex items-center list-disc">
+          <li className="pl-[15px]  flex items-center list-disc cursor-pointer">
             <img
               src="../language.png"
               alt=""
-              className="w-4 h-[11px] object-cover"
+              className="w-5 h-[14px] object-cover relative top-[-1px]"
             />
-            <Link className="ml-[7px]" to="/">
-              Arabic
-            </Link>
+            <span className="ml-[7px] cursor-pointer">Arabic</span>
           </li>
         </ul>
       </div>

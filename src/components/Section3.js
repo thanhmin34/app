@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 import { ProductItem } from "./Section";
 
 const Section3 = ({ title }) => {
@@ -9,12 +10,12 @@ const Section3 = ({ title }) => {
         {title}
       </h2>
       <div className="grid grid-cols-6 gap-5 mb-[100px]">
-        <img src="/brand/logo1.png" alt="" />
-        <img src="/brand/logo2.png" alt="" />
-        <img src="/brand/logo3.png" alt="" />
-        <img src="/brand/logo4.png" alt="" />
-        <img src="/brand/logo5.png" alt="" />
-        <img src="/brand/logo6.png" alt="" />
+        {brands.length > 0 &&
+          brands.map((item, index) => (
+            <Link key={index} to="/">
+              <img src={item.logo} alt="" />
+            </Link>
+          ))}
       </div>
       <div className="grid grid-cols-4 gap-2 mb-[30px]">
         <Button tx="text-w" bg="bg-[#00AFAA]">
@@ -38,6 +39,14 @@ const Section3 = ({ title }) => {
   );
 };
 
+const brands = [
+  { logo: "/brand/logo1.png" },
+  { logo: "/brand/logo2.png" },
+  { logo: "/brand/logo3.png" },
+  { logo: "/brand/logo4.png" },
+  { logo: "/brand/logo5.png" },
+  { logo: "/brand/logo5.png" },
+];
 const data3 = [
   {
     value: "/h6.png",

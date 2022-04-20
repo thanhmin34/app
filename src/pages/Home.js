@@ -7,10 +7,17 @@ import Slider from "../components/Slider";
 import FreeCar from "../components/svg/FreeCar";
 import Headphone from "../components/svg/Headphone";
 import Payment from "../components/svg/Payment";
+import Watch from "../components/svg/Watch";
 
 const Home = () => {
   return (
-    <div className="page-container px-2">
+    <div className="page-container px-2 ">
+      <a
+        className="fixed bottom-5 right-5 z-10 animate-bounce"
+        href="tel:9200067"
+      >
+        <Watch />
+      </a>
       <Slider />
       <div className="flex flex-col mt-[70px] ">
         <h2 className="text-[30px] font-medium leading-[39px] text-center text-basic mb-[50px]">
@@ -31,7 +38,7 @@ const Home = () => {
       <Section title="Shop by Mother & Child Offers" data={data2} img={imgs2} />
       <Section title="Shop by Vitamins & Suplements" data={data3} img={imgs3} />
       <Section2 title="shop by personal care" data1={data4} img={data3} />
-      <Section3 title="shop by personal care" data1={data4} img={data3} />
+      <Section3 title="Shop by Brands" data1={data4} img={data3} />
       <div className="mt-10 relative">
         <img src="/slider2.png" alt="" />
         <div className="absolute top-[50%] translate-y-[-50%] left-[197px]">
@@ -44,7 +51,16 @@ const Home = () => {
         </div>
       </div>
       <div className="mt-[80px] grid grid-cols-3 gap-[30px] ">
-        <Items
+        {Arr1.length > 0 &&
+          Arr1.map((item, index) => (
+            <Items
+              title={item.title}
+              desc={item.desc}
+              icon={item.icon}
+              key={index}
+            />
+          ))}
+        {/* <Items
           title="Free Shipping"
           desc="Free shipping on all US order or order above $200"
           icon={<FreeCar />}
@@ -58,7 +74,7 @@ const Home = () => {
           icon={<Payment />}
           title="Payment Secure"
           desc="We ensure secure payment with PEV"
-        />
+        /> */}
       </div>
     </div>
   );
@@ -176,6 +192,23 @@ const data3 = [
     value: "/h8.png",
     card: "New",
     priceSale: "20.00",
+  },
+];
+const Arr1 = [
+  {
+    title: "Free Shipping",
+    desc: "Free shipping on all US order or order above $200",
+    icon: <FreeCar />,
+  },
+  {
+    title: "Support 24/7",
+    desc: "Contact us 24 hours a day, 7 days a week",
+    icon: <Headphone />,
+  },
+  {
+    title: "Payment Secure",
+    desc: "We ensure secure payment with PEV",
+    icon: <Payment />,
   },
 ];
 

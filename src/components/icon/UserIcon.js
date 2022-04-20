@@ -2,7 +2,7 @@ import React from "react";
 
 const UserIcon = () => {
   return (
-    <span>
+    <div className="relative top-[-1px]">
       <svg
         width="13"
         height="16"
@@ -19,7 +19,7 @@ const UserIcon = () => {
           fill="white"
         />
       </svg>
-    </span>
+    </div>
   );
 };
 
