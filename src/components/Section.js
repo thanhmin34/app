@@ -96,7 +96,7 @@ export function ProductItem(item) {
             {item.src.priceSale} <p className="ml-[2px]">SAR</p>
           </span>
         ) : (
-          <span className="flex items-center justify-start ml-[50px] text-[#01AEAB] text-[18px] font-[600] text-center ">
+          <span className="flex items-center justify-start ml-[25px] text-[#01AEAB] text-[18px] font-[600] text-center ">
             {item.src.priceSale} <p className="ml-[2px]">SAR</p>
           </span>
         )}
