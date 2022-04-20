@@ -13,7 +13,7 @@ import GgPlay from "./svg/GgPlay";
 const Footer = () => {
   return (
     <>
-      <div className="mt-[100px] bg-primary w-full h-[317px] ">
+      <div className="mt-[100px] bg-primary w-full h-[317px] px-2">
         <div className="page-container grid grid-cols-4 gap-5">
           <FooterName title="Who is ORANGE" data={orange} />
           <div className="flex flex-col text-w mt-[50px]">
