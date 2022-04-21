@@ -38,26 +38,29 @@ const listMenu = [
 const HeaderMain = () => {
   const [show, setShow] = useState(false);
   const MenuRef = useRef(null);
-  const btnRef = useRef(null);
+
   useEffect(() => {
     const hanldeClickOutSide = (e) => {
-      // if (
-      //   MenuRef.current &&
-      //   !MenuRef.current.contains(e.target) &&
-      //   !e.target.contain(btnRef)
-      // ) {
-      //   setShow(false);
-      // }
+      if (
+        MenuRef.current &&
+        !MenuRef.current.contains(e.target) &&
+        !e.target.matches("button") &&
+        !e.target.matches("svg") &&
+        !e.target.matches("path")
+      ) {
+        setShow(false);
+      }
     };
     document.addEventListener("click", hanldeClickOutSide);
     return () => {
       document.removeEventListener("click", hanldeClickOutSide);
     };
   }, []);
+
   return (
     <div className="my-[14px] page-container flex items-center sm:items-start justify-between  px-2 sm:my-0 sm:flex-col  ">
       <div
-        className={`overlay fixed top-0 left-0 bottom-0 w-[70%] bg-w z-[100]  ${
+        className={`overlay fixed top-0 left-0 bottom-0 w-[75%] bg-w z-[100]  ${
           show === true
             ? "translate-x-0 opacity-1"
             : "translate-x-[-100%] opacity-0"
@@ -102,7 +105,7 @@ const HeaderMain = () => {
       <div className="logo h-[72px] sm:h-[60px] sm:flex sm:w-full">
         <div className="flex items-center  h-full sm:text-[16px] sm:justify-between">
           <button
-            ref={btnRef}
+            // ref={btnRef}
             className="hidden sm:flex text-[24px] cursor-pointer px-2 py-1"
             onClick={() => setShow(true)}
           >

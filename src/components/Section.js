@@ -99,7 +99,7 @@ export function ProductItem(item) {
           className="absolute top-0 left-0 right-0 object-cover w-full h-full"
         />
       </div>
-      <div className="flex  items-center mx-[50px]  justify-between my-5 md:my-1">
+      <div className="flex items-center justify-center   my-5 md:my-1 px-5">
         <div className="flex items-center ">
           {new Array(5).fill(0).map((item, index) => (
             <div key={index}>
@@ -107,17 +107,17 @@ export function ProductItem(item) {
             </div>
           ))}
         </div>
-        <span className="text-[11px] leading-[13px] font-[400] text-[#023047] border-b">
+        <span className="text-[11px] leading-[13px] font-[400] text-[#023047] border-b ml-[12px]">
           40 Reviews
         </span>
       </div>
-      <h3 className="text-center text-[#023047] font-[600] text-[16px] leading-[21px] mb-[5px] mx-[26px]">
+      <h3 className="text-center text-[#023047] font-[600] text-[16px] leading-[21px] mb-[5px] px-[26px] text-overflow-2">
         Sun Protection face lorem ipsum Sit dolor amet consectetur
       </h3>
       <span className="text-[14px] leading-[17px] font-[400] text-[#023047] opacity-70 text-center mb-5 md:my-1">
         Louis Widmer
       </span>
-      <div className="flex items-center mx-[64px] justify-center mb-[32px] md:mb-2">
+      <div className="flex items-center px-[20px] justify-center mb-[32px] md:mb-2 text-center">
         {item.src.price ? (
           <span className="font-medium text-[16px] md:text-sm text-[#023047] opacity-70 flex items-center ">
             {item.src.price} <span className="ml-[2px]">SAR</span>
@@ -130,17 +130,17 @@ export function ProductItem(item) {
             {item.src.priceSale} <p className="ml-[2px]">SAR</p>
           </span>
         ) : (
-          <span className="flex items-center justify-center  md:ml-0 md:flex-1  text-[#01AEAB] text-[18px] font-[600] text-center md:text-sm ">
-            {item.src.priceSale} <p className="ml-[2px]">SAR</p>
+          <span className="flex items-center justify-center  md:ml-0 md:flex-1  text-[#01AEAB] text-[18px] font-[600] text-center md:text-sm text-center">
+            {item.src.priceSale} <p className="ml-[2px] text-center">SAR</p>
           </span>
         )}
       </div>
 
-      <div className="product-items flex items-center gap-[5px] px-[55px] py-[30px] md:py-[10px] opacity-0  xl:overflow-hidden ">
-        <button className=" btn-add w-full max-w-[160px] md:max-w-[140px] h-[40px] text-[15px] leading-5 text-w bg-[#01AEAB] hover:opacity-80">
+      <div className="product-items flex items-center justify-center gap-[5px] px-[10px] py-[30px] md:py-[10px] xl:opacity-0  xl:overflow-hidden transition-all duration-200">
+        <button className=" btn-add w-full max-w-[160px] px-2 md:max-w-[140px] h-[40px] text-[15px] leading-5 text-w bg-[#01AEAB] hover:opacity-80 md:text-[12px]">
           Add to cart
         </button>
-        <button className="bg-[#01AEAB] h-10 w-12 flex items-center justify-center hover:opacity-80  like-btn ">
+        <button className="bg-[#01AEAB] h-10 w-12 flex items-center justify-center hover:opacity-80  like-btn s:hidden">
           <svg
             width="20"
             height="20"

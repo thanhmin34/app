@@ -22,7 +22,7 @@ const Section2 = ({ title, data1, img }) => {
             .map((item, index) => <Images key={index} src={item.src} />)}
       </div>
 
-      <div className="flex items-center gap-2 s2:hidden">
+      <div className="flex items-center gap-2 s2:hidden mb-5">
         <div className="basis-3/12">
           <img src="/care3.png" alt="" />
         </div>
