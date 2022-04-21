@@ -2,19 +2,29 @@ import React from "react";
 import { Link } from "react-router-dom";
 const HeaderBottom = () => {
   return (
-    <div className="h-[50px] bg-primary w-full">
-      <div className="flex items-center text-[16px] leading-[19px] font-medium  page-container h-full text-w px-2 gap-[7px]">
-        <Link to="/" className=" border-r pr-[15px] hover:opacity-80">
+    <div className="h-[50px] bg-primary w-full md:h-[170px] sm:hidden ">
+      <div className="flex items-center text-[16px] leading-[19px] font-medium  page-container h-full text-w px-2 gap-[7px] md:grid md:grid-cols-5 md:gap-[20px] md:justify-center md:py-[30px] ">
+        <Link
+          to="/"
+          className=" xl:border-r pr-[15px] hover:opacity-80 md:pr-0 flex items-center justify-center"
+        >
           Offers
         </Link>
         {listmenu.length > 0 &&
           listmenu.map((item) => (
-            <Link key={item.title} className="px-h " to="/">
+            <Link
+              key={item.title}
+              className="px-h flex items-center justify-center"
+              to="/"
+            >
               {item.title}
             </Link>
           ))}
 
-        <Link className="pl-[15px] hover:opacity-80" to="/">
+        <Link
+          className="pl-[15px] hover:opacity-80 flex items-center justify-center md:pl-0"
+          to="/"
+        >
           Medical Devices & Equipments
         </Link>
       </div>

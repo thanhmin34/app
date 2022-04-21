@@ -1,60 +1,167 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import DescNameLogo from "../../logo/DescNameLogo";
-import NameLogo from "../../logo/NameLogo";
 import CartIcon from "../icon/Cart-icon";
 import HeartIcon from "../icon/Heart-icon";
 import SearchIcon from "../icon/SearchIcon";
-
+import { BiMenu } from "react-icons/bi";
+import LeftIcon from "../icon/LeftIcon";
+import Close from "../icon/Close";
+const listMenu = [
+  {
+    display: "MEDICATIONS",
+  },
+  {
+    display: "VITAMINS & SUPPLEMENTS",
+  },
+  {
+    display: "MAKEUP & BEAUTY",
+  },
+  {
+    display: "SKIN CARE",
+  },
+  {
+    display: "HAIR CARE",
+  },
+  {
+    display: "PERSONAL CARE",
+  },
+  {
+    display: "MONTHER & CHILD CARE",
+  },
+  {
+    display: "MEDICAL DEVICES & EQUIDMENTS",
+  },
+  {
+    display: "ALL Offers",
+  },
+];
 const HeaderMain = () => {
+  const [show, setShow] = useState(false);
+  const MenuRef = useRef(null);
+  const btnRef = useRef(null);
+  useEffect(() => {
+    const hanldeClickOutSide = (e) => {
+      // if (
+      //   MenuRef.current &&
+      //   !MenuRef.current.contains(e.target) &&
+      //   !e.target.contain(btnRef)
+      // ) {
+      //   setShow(false);
+      // }
+    };
+    document.addEventListener("click", hanldeClickOutSide);
+    return () => {
+      document.removeEventListener("click", hanldeClickOutSide);
+    };
+  }, []);
   return (
-    <div className="my-[40px] page-container flex items-center justify-between px-2">
-      <div className="logo h-[76px] ">
-        <div className="flex items-center h-full">
+    <div className="my-[14px] page-container flex items-center sm:items-start justify-between  px-2 sm:my-0 sm:flex-col  ">
+      <div
+        className={`overlay fixed top-0 left-0 bottom-0 w-[70%] bg-w z-[100]  ${
+          show === true
+            ? "translate-x-0 opacity-1"
+            : "translate-x-[-100%] opacity-0"
+        } transition-all duration-300`}
+        ref={MenuRef}
+      >
+        <header className="h-[56px] flex items-center border-bt">
+          <span
+            className="px-[18px] cursor-pointer font-bold text-xl"
+            onClick={() => setShow(false)}
+          >
+            <Close />
+          </span>
+          <h3 className=" text-base font-medium opacity-75 pl-[8px]">
+            Main Menu
+          </h3>
+        </header>
+        <ul className="flex flex-col px-[24px] text-base w-full  ">
+          {listMenu.length > 0 &&
+            listMenu.map((item) => (
+              <li
+                key={item.display}
+                className="h-[56px] flex items-center justify-between border-none border-bt cursor-pointer hover:opacity-80 "
+              >
+                <span>{item.display}</span>
+                <LeftIcon />
+              </li>
+            ))}
+
+          <li className="flex items-center justify-start h-[49px] cursor-pointer">
+            <img
+              src="https://pwa-orange.snaptec.co/ar-5ah.png"
+              alt=""
+              className="w-[16px] h-[11px]"
+            />
+            <span className="text-xs leading-[17px] ml-[6px] opacity-70 font-[300]">
+              Arabic
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div className="logo h-[72px] sm:h-[60px] sm:flex sm:w-full">
+        <div className="flex items-center  h-full sm:text-[16px] sm:justify-between">
+          <button
+            ref={btnRef}
+            className="hidden sm:flex text-[24px] cursor-pointer px-2 py-1"
+            onClick={() => setShow(true)}
+          >
+            <BiMenu />
+          </button>
           <Link to="/">
-            <svg
-              width="50"
-              height="52"
-              viewBox="0 0 50 52"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M36.2481 5.01513L34.7539 13.8348H34.7407C34.7407 13.8348 34.7407 13.8348 34.7539 13.848C31.7391 13.7951 29.5177 14.3769 28.116 14.919C30.4433 15.5273 32.506 16.7967 34.0928 18.5157C34.1192 18.5421 34.1457 18.5553 34.1721 18.5818C35.9043 20.4726 36.9621 22.6412 37.3324 25.1006C37.4514 25.9469 37.491 26.7667 37.4514 27.5865C37.1869 34.2905 31.6862 39.6325 24.9426 39.6325C18.027 39.6325 12.4205 34.0128 12.4205 27.0708C12.4205 24.5188 13.1874 22.1387 14.4965 20.1553C15.2238 19.0446 16.1361 18.0661 17.1675 17.233C19.0055 15.448 21.2005 14.1918 23.7525 13.4513C26.3839 12.6844 30.8003 12.5786 33.1936 13.0943L35.2299 1.03506C32.2812 0.413582 29.3193 0.440027 27.2301 0.572255C24.8103 0.730929 21.1873 1.24662 17.6832 2.71436C13.875 4.31432 10.5561 6.69443 7.84541 9.69602C3.66699 13.967 1.03565 19.7718 0.850527 26.1849C0.810858 26.37 0.810859 26.5684 0.810859 26.7667C0.810859 26.8064 0.810859 26.8461 0.810859 26.8857C0.810859 26.9122 0.810859 26.9254 0.810859 26.9518C0.797636 29.1072 1.04887 31.2625 1.61745 33.4046C3.11163 39.0772 6.3909 43.7184 11.1776 46.958C15.1444 49.7745 19.984 51.4273 25.2202 51.4273C38.6943 51.4273 49.6296 40.4391 49.6296 26.8857C49.6032 17.3256 44.1686 9.06132 36.2481 5.01513Z"
-                fill="#00AFAA"
-              />
-            </svg>
+            <img
+              src="	https://pwa-orange.snaptec.co/logo-mobile-fzu.png"
+              alt=""
+              className="w-[160px]  object-cover  sm:w-[120px] ml-[15px]"
+            />
           </Link>
-          <Link to="/">
-            <div className="header-name flex flex-col ml-[15px] ">
-              <div className="flex flex-col items-center justify-center mt-[18px]">
-                <NameLogo />
-                <DescNameLogo />
-              </div>
-            </div>
-          </Link>
+        </div>
+        <div className=" hidden sm:flex items-center ml-auto gap-[15px]">
+          <div className="flex  w-[25px] cursor-pointer opacity-80">
+            <img
+              src="https://pwa-orange.snaptec.co/shopping-basket-black-vEa.png"
+              alt=""
+            />
+          </div>
+          <div className="flex w-[25px] cursor-pointer opacity-80 ">
+            <img
+              src="https://pwa-orange.snaptec.co/user-black-8U2.png"
+              alt=""
+              className=" "
+            />
+          </div>
         </div>
       </div>
-      <div className="control flex items-center flex-1 ml-[226px] ">
-        <div className="input flex items-center justify-start flex-1 border border-[#E5E5E5] search ">
-          <input
-            type="text"
-            className="text-[14px] px-[15px] py-[12px] flex-1 text-[#7C7C7C] inputElement"
-            placeholder="Search for a product, brand, category.."
-          />
-          <SearchIcon />
-        </div>
-        <button className="flex items-center justify-center mr-[15px] ml-[30px] bg-secondary py-[8px] px-[24px] hover:opacity-80 ">
+      <div className="control flex items-center justify-end gap-[15px] sm:hidden ">
+        <Input />
+        <button className="flex items-center justify-center  bg-secondary py-[8px] px-[6px] w-[130px]  md:w-[40px] hover:opacity-80 ">
           <HeartIcon />
-          <span className="text-w ml-[10px]">Wishlist</span>
+          <span className="text-w ml-[10px] md:hidden">Wishlist</span>
         </button>
-        <button className="flex items-center justify-center  bg-secondary py-[8px] px-[24px] hover:opacity-80 ">
+        <button className="flex items-center justify-center  bg-secondary py-[8px] px-[6px] w-[170px] md:w-[40px] hover:opacity-80 ">
           <CartIcon />
-          <span className="text-w ml-[10px] font-[14px]">Shopping Cart</span>
+          <span className="text-w ml-[10px] font-[14px] md:hidden">
+            Shopping Cart
+          </span>
         </button>
+      </div>
+      <div className="sm:block hidden sm:h-[40px] sm:my-[15px] w-full max-w-[300px] mx-auto ">
+        <Input />
       </div>
     </div>
   );
 };
 
+function Input() {
+  return (
+    <div className="input flex items-center justify-start flex-1 border border-[#E5E5E5] search  ">
+      <input
+        type="text"
+        className="text-[14px] px-[15px] py-[12px] flex-1 text-[#7C7C7C] w-[380px] inputElement"
+        placeholder="Search for a product, brand, category.."
+      />
+      <SearchIcon />
+    </div>
+  );
+}
 export default HeaderMain;

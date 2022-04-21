@@ -1,11 +1,11 @@
 import React from "react";
 
-const NameLogo = () => {
+const NameLogo = ({ w = "170", h = "30" }) => {
   return (
     <span className="text-[24px]">
       <svg
-        width="170"
-        height="30"
+        width={w}
+        height={h}
         viewBox="0 0 171 31"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

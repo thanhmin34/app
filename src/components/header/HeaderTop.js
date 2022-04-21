@@ -5,18 +5,18 @@ import UserIcon from "../icon/UserIcon";
 
 const HeaderTop = () => {
   return (
-    <div className="h-[40px] bg-basic  text-[#fff] px-2">
-      <div className="page-container  flex justify-between h-full">
+    <div className="h-[40px] bg-basic  text-[#fff] sm:h-[20px]">
+      <div className="page-container  flex justify-between h-full px-2 sm:justify-end md:text-[12px]">
         <ul className="flex items-center gap-[14px] justify-start  font-[14px] leading-[17px]">
           <li className="">info: 9200067</li>
-          <li className=" list-disc mx-4">
+          <li className=" list-disc mx-4 sm:hidden">
             <Link to="/">About</Link>
           </li>
           <li className="list-disc mx-4">
             <Link to="/">Branches</Link>
           </li>
         </ul>
-        <ul className="flex items-center font-[14px] leading-[17px]">
+        <ul className="flex items-center font-[14px] leading-[17px] sm:hidden">
           <li className=" font-[300] text-base pr-6">Delivery Information</li>
           <li className="px-4  flex items-center list-disc">
             <UserIcon />

@@ -4,8 +4,8 @@ const UserIcon = () => {
   return (
     <div className="relative top-[-1px]">
       <svg
-        width="13"
-        height="16"
+        width="21"
+        height="21"
         viewBox="0 0 13 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

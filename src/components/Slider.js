@@ -1,15 +1,13 @@
 import React from "react";
 
-const Slider = () => {
+const Slider = ({ src }) => {
   return (
-    <div className="mt-[30px]">
-      <div className="pt-[49%] relative">
-        <img
-          src="/slider.png"
-          className="w-full h-full absolute object-cover top-0 left-0 right-0 "
-          alt=""
-        />
-      </div>
+    <div className="pt-[49%] relative flex flex-col mt-2">
+      <img
+        src={src}
+        className="w-full h-full absolute object-cover top-0 left-0 right-0 "
+        alt=""
+      />
     </div>
   );
 };

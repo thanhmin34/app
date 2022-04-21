@@ -1,4 +1,6 @@
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import HeaderMenu from "../components/HeaderMenu";
 import Items from "../components/Items";
 import Section from "../components/Section";
 import Section2 from "../components/Section2";
@@ -8,17 +10,55 @@ import FreeCar from "../components/svg/FreeCar";
 import Headphone from "../components/svg/Headphone";
 import Payment from "../components/svg/Payment";
 import Watch from "../components/svg/Watch";
+import { Navigation, Pagination, Autoplay } from "swiper";
 
+import "swiper/scss";
+import "swiper/scss/navigation";
+import "swiper/scss/pagination";
+const slide = [
+  {
+    img: "/slider.png",
+  },
+  {
+    img: "/slide2.png",
+  },
+  {
+    img: "/slider.png",
+  },
+  {
+    img: "/slide2.png",
+  },
+];
 const Home = () => {
   return (
     <div className="page-container px-2 ">
       <a
-        className="fixed bottom-5 right-5 z-10 animate-bounce"
+        className="fixed top-[77%] right-5 sm:bottom-14 z-10 w-[60px] h-[60px] animate-bounce "
         href="tel:9200067"
       >
         <Watch />
       </a>
-      <Slider />
+      <HeaderMenu />
+
+      <Swiper
+        modules={[Navigation, Autoplay, Pagination]}
+        grabCursor={"true"}
+        slidesPerView={"auto"}
+        autoplay={{
+          delay: 6000,
+          disableOnInteraction: false,
+        }}
+        // navigation
+        pagination={{ clickable: true }}
+      >
+        {slide.length > 0 &&
+          slide.map((item, index) => (
+            <SwiperSlide key={index}>
+              <Slider src={item.img} />
+            </SwiperSlide>
+          ))}
+      </Swiper>
+
       <div className="flex flex-col mt-[70px] ">
         <h2 className="text-[30px] font-medium leading-[39px] text-center text-basic mb-[50px]">
           Shop by Offers
@@ -39,7 +79,7 @@ const Home = () => {
       <Section title="Shop by Vitamins & Suplements" data={data3} img={imgs3} />
       <Section2 title="shop by personal care" data1={data4} img={data3} />
       <Section3 title="Shop by Brands" data1={data4} img={data3} />
-      <div className="mt-10 relative">
+      <div className="mt-10 relative s2:hidden">
         <img src="/slider2.png" alt="" />
         <div className="absolute top-[50%] translate-y-[-50%] left-[197px]">
           <h1 className="font-medium text-[30px] leading-[42px] text-basic w-full max-w-[480px] px-10 text-center">
@@ -50,7 +90,7 @@ const Home = () => {
           </button>
         </div>
       </div>
-      <div className="mt-[80px] grid grid-cols-3 gap-[30px] ">
+      <div className="mt-[80px] grid grid-cols-3 gap-5 s2:hidden ">
         {Arr1.length > 0 &&
           Arr1.map((item, index) => (
             <Items
@@ -60,21 +100,9 @@ const Home = () => {
               key={index}
             />
           ))}
-        {/* <Items
-          title="Free Shipping"
-          desc="Free shipping on all US order or order above $200"
-          icon={<FreeCar />}
-        />
-        <Items
-          icon={<Headphone />}
-          title="Support 24/7"
-          desc="Contact us 24 hours a day, 7 days a week"
-        />
-        <Items
-          icon={<Payment />}
-          title="Payment Secure"
-          desc="We ensure secure payment with PEV"
-        /> */}
+      </div>
+      <div className="mt-[24px] grid grid-cols-1 gap-5 s1:hidden ">
+        <img src="/baner.png" alt="" className="w-full" />
       </div>
     </div>
   );
@@ -141,6 +169,13 @@ const data1 = [
     price: "30.00",
     priceSale: "20.00",
   },
+  {
+    value: "/sp4.png",
+    card: "Hit",
+    card2: "SALE - 30%",
+    price: "30.00",
+    priceSale: "20.00",
+  },
 ];
 const data2 = [
   {
@@ -167,6 +202,11 @@ const data2 = [
     card: "New",
     priceSale: "20.00",
   },
+  {
+    value: "/sp8.png",
+    card: "New",
+    priceSale: "20.00",
+  },
 ];
 const data3 = [
   {
@@ -186,6 +226,11 @@ const data3 = [
     card: "Hit",
     card2: "SALE - 30%",
     price: "30.00",
+    priceSale: "20.00",
+  },
+  {
+    value: "/h8.png",
+    card: "New",
     priceSale: "20.00",
   },
   {

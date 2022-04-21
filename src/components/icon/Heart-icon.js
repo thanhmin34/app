@@ -4,7 +4,7 @@ const HeartIcon = () => {
   return (
     <span>
       <svg
-        width="21"
+        width="18"
         height="18"
         viewBox="0 0 21 18"
         fill="none"

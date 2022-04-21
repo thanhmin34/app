@@ -2,7 +2,10 @@ import React from "react";
 import Button from "./Button";
 import { Link } from "react-router-dom";
 import { ProductItem } from "./Section";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import "swiper/scss";
+import "swiper/css/navigation";
 const Section3 = ({ title }) => {
   return (
     <div className="mt-[70px]">
@@ -17,24 +20,52 @@ const Section3 = ({ title }) => {
             </Link>
           ))}
       </div>
-      <div className="grid grid-cols-4 gap-2 mb-[30px]">
-        <Button tx="text-w" bg="bg-[#00AFAA]">
+      <div className="grid grid-cols-4 gap-2 mb-[30px] s2:flex s2:items-center s2:flex-col">
+        <Button tx="text-w" bg="bg-[#00AFAA] s2:w-full">
           Seasonal highlights
         </Button>
-        <Button tx="text-[#023047]" bg="bg-[#E5E5E5]">
+        <Button tx="text-[#023047]" bg="bg-[#E5E5E5] s2:w-full">
           Popular
         </Button>
-        <Button tx="text-[#023047]" bg="bg-[#E5E5E5]">
+        <Button tx="text-[#023047]" bg="bg-[#E5E5E5] s2:w-full">
           New products
         </Button>
-        <Button tx="text-[#023047]" bg="bg-[#E5E5E5]">
+        <Button tx="text-[#023047]" bg="bg-[#E5E5E5] s2:w-full">
           Recommendation
         </Button>
       </div>
-      <div className="grid grid-cols-4 gap-[31px]">
+      {/* <div className="grid grid-cols-4 gap-[31px] md:grid-cols-3 ">
         {data3.length > 0 &&
           data3.map((item, index) => <ProductItem key={index} src={item} />)}
-      </div>
+      </div> */}
+      <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={15}
+        slidesPerView={4}
+        navigation
+        breakpoints={{
+          1240: {
+            minWidth: 1240,
+            slidesPerView: 4,
+          },
+
+          678: {
+            minWidth: 678,
+            slidesPerView: 3,
+          },
+          320: {
+            minWidth: 300,
+            slidesPerView: 2,
+          },
+        }}
+      >
+        {data3.length > 0 &&
+          data3.map((item, index) => (
+            <SwiperSlide key={index}>
+              <ProductItem src={item} />
+            </SwiperSlide>
+          ))}
+      </Swiper>
     </div>
   );
 };
