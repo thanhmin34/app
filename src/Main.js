@@ -7,7 +7,13 @@ const Home = lazy(() => import("./pages/Home"));
 
 const Main = () => {
   return (
-    <Suspense fallback={<div className="animated yt-loader">loading...</div>}>
+    <Suspense
+      fallback={
+        <div className="flex justify-center text-primary items-center relative top-5 left-[50%] translate-x-[-50%] w-10 h-10 rounded-full animate-spin border-4 border-l-transparent border-primary transition-all duration-300">
+          >
+        </div>
+      }
+    >
       <Routes>
         <Route element={<LayOut />}>
           <Route path="/" element={<Home />}></Route>
