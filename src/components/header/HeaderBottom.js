@@ -1,19 +1,33 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 const HeaderBottom = () => {
   const navRef = useRef(null);
+  const [scrollTop, setScrollTop] = useState(false);
   useEffect(() => {
-    const hanldeScroll = () => {};
+    const hanldeScroll = () => {
+      if (window.scrollY >= 112) {
+        setScrollTop(true);
+      } else {
+        setScrollTop(false);
+      }
+    };
     document.addEventListener("scroll", hanldeScroll);
     return () => {
       document.removeEventListener("scroll", hanldeScroll);
     };
   }, []);
+  console.log(scrollTop);
   return (
-    <div className="h-[50px] bg-primary w-full md:h-[170px] sm:hidden ">
+    <div
+      className={`h-[50px] bg-primary w-full md:h-[170px] sm:hidden ${
+        scrollTop === true
+          ? "md:fixed md:top-0 md:left-0 md:right-0  md:z-30 md:transition-all md:duration-75"
+          : ""
+      }`}
+    >
       <div
         ref={navRef}
-        className="flex items-center text-[16px] leading-[19px] font-medium  page-container h-full text-w px-2 gap-[7px] md:grid md:grid-cols-5 md:gap-[20px] md:justify-center md:py-[30px] "
+        className={`flex items-center text-[16px] leading-[19px] font-medium  page-container h-full text-w px-2 gap-[7px] md:grid md:grid-cols-5 md:gap-[20px] md:justify-center md:py-[30px] `}
       >
         <div className="flex  items-center justify-center">
           <Link
@@ -24,8 +38,8 @@ const HeaderBottom = () => {
           </Link>
         </div>
         {listmenu.length > 0 &&
-          listmenu.map((item) => (
-            <div className="flex  items-center justify-center">
+          listmenu.map((item, index) => (
+            <div key={index} className="flex  items-center justify-center">
               <Link
                 key={item.title}
                 className="relative text-center navlink mx-[14.6px]"
