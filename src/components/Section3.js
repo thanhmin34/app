@@ -12,15 +12,19 @@ const Section3 = ({ title }) => {
       <h2 className="text-[30px] font-medium leading-[39px] text-center text-basic mb-[50px]">
         {title}
       </h2>
-      <div className="grid grid-cols-6 gap-5 mb-[100px]">
+      <div className="grid grid-cols-6 gap-5 mb-[100px] s2:grid-cols-3 s2:mb-[32px] md:mb-[50px]">
         {brands.length > 0 &&
           brands.map((item, index) => (
-            <Link key={index} to="/">
+            <Link
+              key={index}
+              to="/"
+              className="flex items-center justify-center"
+            >
               <img src={item.logo} alt="" />
             </Link>
           ))}
       </div>
-      <div className="grid grid-cols-4 gap-2 mb-[30px] s2:flex s2:items-center s2:flex-col">
+      <div className="grid grid-cols-4 gap-2 mb-[30px] s2:flex s2:items-center s2:flex-col ">
         <Button tx="text-w" bg="bg-[#00AFAA] s2:w-full">
           Seasonal highlights
         </Button>

@@ -33,10 +33,7 @@ const Section2 = ({ title, data1, img }) => {
           <img src="/care5.png" alt="" />
         </div>
       </div>
-      {/* <div className="grid grid-cols-4 gap-[30px] mt-[50px] md:grid-cols-3 sm:grid-cols-1">
-        {img.length > 0 &&
-          img.map((item, index) => <ProductItem key={index} src={item} />)}
-      </div> */}
+
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={15}

@@ -63,7 +63,7 @@ const Home = () => {
         <h2 className="text-[30px] font-medium leading-[39px] text-center text-basic mb-[50px]">
           Shop by Offers
         </h2>
-        <div className="grid grid-cols-4 gap-20 px-10">
+        <div className="grid grid-cols-4 gap-20 px-10 s2:grid-cols-2">
           <Image src="/free.png" />
           <Image src="/sale.png" />
           <Image src="/best.png" />
@@ -82,10 +82,10 @@ const Home = () => {
       <div className="mt-10 relative s2:hidden">
         <img src="/slider2.png" alt="" />
         <div className="absolute top-[50%] translate-y-[-50%] left-[197px]">
-          <h1 className="font-medium text-[30px] leading-[42px] text-basic w-full max-w-[480px] px-10 text-center">
+          <h1 className="font-medium text-[30px] leading-[42px] text-basic w-full max-w-[480px] px-10 text-center md:text-[20px]">
             To Exchange your Prescription request
           </h1>
-          <button className="px-10 py-[10px] bg-primary text-w text-center ml-[160px] mt-5 hover:opacity-80">
+          <button className="px-10 py-[10px] bg-primary text-w text-center ml-[160px] mt-5 hover:opacity-80 md">
             Order Now
           </button>
         </div>
