@@ -33,7 +33,7 @@ const Home = () => {
   return (
     <div className="page-container px-2 ">
       <a
-        className="fixed top-[77%] right-5 sm:bottom-14 z-10 w-[60px] h-[60px] animate-bounce "
+        className="fixed s2:top-[80%] top-[90%] right-5 sm:bottom-14 z-10 w-[60px] h-[60px] animate-bounce "
         href="tel:9200067"
       >
         <Watch />
